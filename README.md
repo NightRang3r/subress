@@ -27,5 +27,6 @@ Example: cat google_subdomains.txt | subress -q -t 100
     	Port number (default "443")
   -q	Don't print exceptions to screen
   -t	Number of threads
+  -w	Display wildcards
   
-  ```
+ ```
