@@ -17,6 +17,7 @@ var (
 	unique     = flag.String("d", "", "Print only results that ends with the provided domain name")
 	quiet      = flag.Bool("q", false, "Don't print exceptions to screen")
 	useThreads = flag.Bool("t", false, "Number of threads")
+	wildcard   = flag.Bool("w", false, "Display wildcards")
 	help       = flag.Bool("h", false, "Display help and usage")
 )
 
@@ -79,7 +80,7 @@ func getCertificateSubjectAlternativeName(domain string) {
 			continue
 		}
 
-		if strings.HasPrefix(san, "*.") {
+		if (strings.HasPrefix(san, "*.")) && (!*wildcard) {
 			san = san[2:]
 		}
 		names = append(names, san)
